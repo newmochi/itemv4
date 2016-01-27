@@ -1,0 +1,36 @@
+<% @page_title = "ユーザリスト" %>
+
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<%= form_tag :search_members, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+
+<% if @members.present? %>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+  <tr>
+    <th><%= Member.human_attribute_name(:number) %></th>
+    <th><%= Member.human_attribute_name(:name) %></th>
+    <th><%= Member.human_attribute_name(:full_name) %></th>
+    <th><%= Member.human_attribute_name(:administrator) %></th>
+  </tr>
+  <% @members.each do |member| %>
+  <tr>
+    <td align="right"><%= member.number %></td>
+    <td><%= link_to member.name, member %></td>
+    <td><%= member.full_name %></td>
+    <td><%= member.administrator? ? "○" : "－" %></td>
+  
+  </tr>
+  <% end %>
+</table>
+</div>
+<%= will_paginate @members %>
+
+<% else %>
+<p>ユーザ情報がありません。</p>
+<% end %>

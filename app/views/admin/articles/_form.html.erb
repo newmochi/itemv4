@@ -1,0 +1,177 @@
+<%= render "shared/errors", obj: @article %>
+
+<%
+=begin
+%>
+  begin,endで囲ったところは複数行に渡るコメント。
+  一般用は以下であった。
+  ownernameとrev_dateはちゃんとログインしたユーザ
+  の名前と更新日付を自動で入れ、管理する。
+  しかし、このadmin用は、どちらのフィールドも
+  自由自在に設定できるようにした。
+<%
+=end
+%>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+<%# asciino %>
+  <tr>
+    <th><%= form.label :asciino %></th>
+    <td><%= form.text_field :asciino, size: 20 %></td>
+  </tr>
+<%# location %>
+  <tr>
+    <th><%= form.label :location %></th>
+    <td><%= form.text_field :location, size: 20 %></td>
+  </tr>
+<%# category1 %>
+  <tr>
+    <th><%= form.label :category1 %></th>
+    <td><%= form.text_field :category1, size: 20 %></td>
+  </tr>
+<%# category2 %>
+  <tr>
+    <th><%= form.label :category2 %></th>
+    <td><%= form.text_field :category2, size: 20 %></td>
+  </tr>
+<%# servername %>
+  <tr>
+    <th><%= form.label :servername %></th>
+    <td><%= form.text_field :servername, size: 32 %></td>
+  </tr>
+
+<%# type_p1v2a9は物理仮想アプを選択させて1,2,9をセット。 %>
+  <tr>
+    <th><%= form.label :type_p1v2a9 %></th>
+    <td><% options = [ ["物理", 1], ["仮想", 2] ] %>
+    <%= form.select :type_p1v2a9, options %></td>
+  </tr>
+
+<%# balancer_use1no0はLB不要要apl scaleを選択させて0,1,2をセット。 %>
+  <tr>
+    <th><%= form.label :balancer_use1no0 %></th>
+    <td><% options = [ ["LB不要", 0],["LB要", 1], ["apl scale", 2] ] %>
+    <%= form.select :balancer_use1no0, options %></td>
+  </tr>
+
+<%# os_w1x2はwin=1,linux=2をセット。 %>
+  <tr>
+    <th><%= form.label :os_w1x2 %></th>
+    <td><% options = [ ["win", 1], ["linux", 2] ] %>
+    <%= form.select :os_w1x2, options %></td>
+  </tr>
+
+<%# osfullnameは複数から選択させてその文字列をセット。 %>
+  <tr>
+    <th><%= form.label :osfullname %></th>
+    <td><% options = [ "Win2008R2","Win2012R2", \
+    "RHEL6.3(32)", "RHEL6.3(64)", "CentOS(64)" ] %>
+    <%= form.select :osfullname, options %></td>
+  </tr>
+
+<%# 台数(数値):daisu %>
+  <tr>
+    <th><%= form.label :daisu %></th>
+    <td><%= form.number_field :daisu, min: 0, max: 100, size: 6 %></td>
+  </tr>
+
+<%# コア数(数値):core %>
+  <tr>
+    <th><%= form.label :core %></th>
+    <td><%= form.number_field :core, min: 0, max: 32, size: 6 %></td>
+  </tr>
+
+
+<%# メモリGB(数値):memgbyte %>
+  <tr>
+    <th><%= form.label :memgbyte %></th>
+    <td><%= form.number_field :memgbyte,\
+     min: 0, max: 384, size: 8 %></td>
+  </tr>
+
+
+<%# ストレージ容量GB(数値):storagegbyte %>
+  <tr>
+    <th><%= form.label :storagegbyte %></th>
+    <td><%= form.number_field :storagegbyte,\
+     min: 0, max: 100000, step: 10, size: 20 %></td>
+  </tr>
+
+<%# st1_fsはDAS=1 NFS=2 CIFS=4の組み合わせをセット。 %>
+  <tr>
+    <th><%= form.label :st1_fs %></th>
+    <td><% options = [ ["1=DASかFC", 1], ["2=NFS", 2], ["3=DASとNFS可", 3], ["4=CIFS", 4], ["5=DASとCIFS可", 5], ["6=NFSとCIFS可", 6], ["7=DASNFSCIFS all可", 7] ] %>
+    <%= form.select :st1_fs, options %></td>
+  </tr>
+<%# st2_repはsnap=1 inboxレプリ=2 outbosレプリ=4の組み合わせをセット。 %>
+  <tr>
+    <th><%= form.label :st2_rep %></th>
+    <td><% options = [ ["0=不要", 0],["1=snap要", 1], ["3=snap＋inboxレプリ要", 3], ["7=snap/inbox/outboxレプリ要", 7] ] %>
+    <%= form.select :st2_rep, options %></td>
+  </tr>
+<%# ストレージ帯域(Mbps):st3_mbps %>
+  <tr>
+    <th><%= form.label :st3_mbps %></th>
+    <td><%= form.number_field :st3_mbps,\
+     min: 10, max: 1000, step: 10, size: 20 %></td>
+  </tr>
+
+<%# iops %>
+  <tr>
+    <th><%= form.label :iops %></th>
+    <td><%= form.text_field :iops, size: 70 %></td>
+  </tr>
+
+<%# bu1_typeは0は不要 蓄積=1 フル＋差分=2をセット。 %>
+  <tr>
+    <th><%= form.label :bu1_type %></th>
+    <td><% options = [ ["0=BU不要", 0],["1=蓄積", 1], ["2=フル＋差分", 2] ] %>
+    <%= form.select :bu1_type, options %></td>
+  </tr>
+<%# bu2_intervalは0は不要 蓄積=1 フル＋差分=2をセット。 %>
+  <tr>
+    <th><%= form.label :bu2_interval %></th>
+    <td><% options = [ ["0=不定期", 0],["1=毎週", 1], ["2=隔週", 2], ["3=3週に1回", 3], ["4=毎月", 4] ] %>
+    <%= form.select :bu2_interval, options %></td>
+  </tr>
+<%# フルBU容量Mbytes:bu3_fullsize %>
+  <tr>
+    <th><%= form.label :bu3_fullsize %></th>
+    <td><%= form.number_field :bu3_fullsize,\
+     min: 0, max: 10000000, step: 10, size: 20 %></td>
+  </tr>
+<%# 差分BU容量Mbytes:bu4_diffsize %>
+  <tr>
+    <th><%= form.label :bu4_diffsize %></th>
+    <td><%= form.number_field :bu4_diffsize,\
+     min: 0, max: 100000, step: 10, size: 20 %></td>
+  </tr>
+
+
+
+<%# remark %>
+  <tr>
+    <th><%= form.label :remark %></th>
+    <td><%= form.text_area :remark, rows: 10, cols: 70 %></td>
+  </tr>
+<%# ownername:管理者は自由にセット。 %>
+
+  <tr>
+    <th><%= form.label :ownername %></th>
+    <td><%= form.text_field :ownername, size: 32 %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :rev_date %></th>
+    <td><%= form.date_select :rev_date,
+              start_year: 2014, end_year: 2020,
+              use_month_numbers: true %></td>
+  </tr>
+
+</table>
+</div>
+
+<%# rev_date:自動で入れるTime.current。 %>
+<%= form.hidden_field :rev_date, value: Time.now %>
+
+

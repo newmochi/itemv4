@@ -1,0 +1,48 @@
+<% @page_title = "サーバ基盤一覧管理者用" %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<%= form_tag :search_admin_articles, method: :get do %>
+<p>設置場所　<%= text_field_tag "q1", params[:q1] %>
+<p>オーナー　<%= text_field_tag "q2", params[:q2] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<p><%= link_to "全項目新規作成", :new_admin_article %>
+<%= link_to "CSV出力",:download_admin_articles %></p>
+
+<% if @articles.present? %>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>番号</th>
+    <th>オーナー</th>
+    <th>更新日時</th>
+    <th>設置場所</th>
+    <th>分類</th>
+    <th>機能</th>
+    <th>サーバ</th>
+    <th>操作</th>
+  </tr>
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= link_to article.asciino, [:admin, article] %></td>
+    <td><%= link_to article.ownername, article %></td>
+     <td><%= article.rev_date.try(:strftime, "%m/%d %HH") %></td>
+    <td><%= truncate(article.location, length: 6) %></td>
+    <td><%= truncate(article.category1, length: 6) %></td>
+    <td><%= truncate(article.category2, length: 6) %></td>
+    <td><%= truncate(article.servername, length: 6) %></td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, article] %> |
+      <%= link_to "削除", [:admin, article], method: :delete,
+            data: { confirm: "本当に削除しますか?" } %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<%= will_paginate @articles, renderer: BootstrapPagination::Rails  %>
+
+<% else %>
+<p>サーバ基盤が１つもありません。</p>
+<% end %>

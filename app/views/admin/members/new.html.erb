@@ -1,0 +1,8 @@
+<% @page_title = "ユーザの新規登録" %>
+
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<%= form_for [:admin, @member] do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

@@ -1,0 +1,207 @@
+<% @page_title = @article.asciino %>
+<h1><%= @article.asciino %></h1>
+<% @tmp_typename = ["zero","物理(=1)","仮想(=2)","アプライアンス(=9)"] %>
+<% @tmp_balancer = ["LB不要(=0)","LB要(=1)","Apl scale out(=2)"] %>
+<% @tmp_os = ["zero","Windows(=1)","Linux(=2)"] %>
+<% @tmp_st1_fs = ["未定かつ希望なし","DAS(=1)","NFS(=2)","DASNFS可(=3)","CIFS(=4)","DASCIFS可(=5)","NFSCIFS可(=6)","DASNFSCIFS可(=7)"] %>
+<% @tmp_st2_rep = ["不要","snapshot要(=1)","inboxRep要(=2)","snapとinbox要(=3)","outboxRep要(=4)","snapとoutbox要(=5)","inとoutbox要(=6)","snap,in,outbox要(=7)"] %>
+<% @tmp_bu1_type = ["データBU不要","常に追加(=1)","フルと差分(=2)"] %>
+<% @tmp_bu2_interval = ["不定期(system backupのみなど)","毎週(=1)","2週に1回(=2)","3週に1回(=3)","月に1回(=4)"] %>
+
+<p><%= link_to "全項目編集", [:edit, :admin, @article] %></p>
+
+<table class="attr">
+  <tr>
+    <th width="300"><%= t('activerecord.attributes.article.asciino') %></th>
+    <td><%= @article.asciino %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.location') %></th>
+    <td><%= simple_format(@article.location) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.category1') %></th>
+    <td><%= simple_format(@article.category1) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.category2') %></th>
+    <td><%= simple_format(@article.category2) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.servername') %></th>
+    <td><%= simple_format(@article.servername) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.type_p1v2a9') %></th>
+    <% case @article.type_p1v2a9 %>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_typename[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_typename[2]) %></td>
+      <% when 9 %>
+         <td><%= simple_format(@tmp_typename[3]) %></td>
+      <% else %>
+         <td>該当なし(1=物理,2=仮想,3=アプライアンス、入れてね)</td>
+    <% end %>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.balancer_use1no0') %></th>
+    <% case @article.balancer_use1no0 %>
+      <% when 0 %>
+         <td><%= simple_format(@tmp_balancer[0]) %></td>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_balancer[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_balancer[2]) %></td>
+      <% else %>
+         <td>該当なし(LB不要=0 要=1 aplでscale=2 入れてね)</td>
+    <% end %>
+  </tr>
+
+
+ <tr>
+    <th><%= t('activerecord.attributes.article.os_w1x2') %></th>
+    <% case @article.os_w1x2 %>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_os[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_os[2]) %></td>
+      <% else %>
+         <td>該当なし(1=Windows,2=Linux 入れてね)</td>
+    <% end %>
+  </tr>
+
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.osfullname') %></th>
+    <td><%= simple_format(@article.osfullname) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.daisu') %></th>
+    <td><%= @article.daisu %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.core') %></th>
+    <td><%= @article.core %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.memgbyte') %></th>
+    <td><%= @article.memgbyte %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.storagegbyte') %></th>
+    <td><%= @article.storagegbyte %></td>
+  </tr>
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.st1_fs') %></th>
+    <% case @article.st1_fs %>
+      <% when 0 %>
+         <td><%= simple_format(@tmp_st1_fs[0]) %></td>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_st1_fs[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_st1_fs[2]) %></td>
+      <% when 3 %>
+         <td><%= simple_format(@tmp_st1_fs[3]) %></td>
+      <% when 4 %>
+         <td><%= simple_format(@tmp_st1_fs[4]) %></td>
+      <% when 5 %>
+         <td><%= simple_format(@tmp_st1_fs[5]) %></td>
+      <% when 6 %>
+         <td><%= simple_format(@tmp_st1_fs[6]) %></td>
+      <% when 7 %>
+         <td><%= simple_format(@tmp_st1_fs[7]) %></td>
+      <% else %>
+         <td>データvol一切なし(DAS=1 NFS=2 CIFS=4 DASNFS可=3 DASCIFS可=5 NFSCIFS可=6 DASNFSCIFS可=7)</td>
+    <% end %>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.st2_rep') %></th>
+    <% case @article.st2_rep %>
+      <% when 0 %>
+         <td><%= simple_format(@tmp_st2_rep[0]) %></td>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_st2_rep[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_st2_rep[2]) %></td>
+      <% when 3 %>
+         <td><%= simple_format(@tmp_st2_rep[3]) %></td>
+      <% when 4 %>
+         <td><%= simple_format(@tmp_st2_rep[4]) %></td>
+      <% when 5 %>
+         <td><%= simple_format(@tmp_st2_rep[5]) %></td>
+      <% when 6 %>
+         <td><%= simple_format(@tmp_st2_rep[6]) %></td>
+      <% when 7 %>
+         <td><%= simple_format(@tmp_st2_rep[7]) %></td>
+      <% else %>
+         <td>snap系不要(snap要=1 inboxRep要=2 outboxRep要=4 snapとinとout要=7)</td>
+    <% end %>
+  </tr>
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.st3_mbps') %></th>
+    <td><%= @article.st3_mbps %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.iops') %></th>
+    <td><%= simple_format(@article.iops) %></td>
+  </tr>
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.bu1_type') %></th>
+    <% case @article.bu1_type %>
+      <% when 0 %>
+         <td><%= simple_format(@tmp_bu1_type[0]) %></td>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_bu1_type[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_bu1_type[2]) %></td>
+      <% else %>
+         <td>BU不要(logのように蓄積=1 フルと差分=2)</td>
+    <% end %>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.bu2_interval') %></th>
+    <% case @article.bu2_interval %>
+      <% when 0 %>
+         <td><%= simple_format(@tmp_bu2_interval[0]) %></td>
+      <% when 1 %>
+         <td><%= simple_format(@tmp_bu2_interval[1]) %></td>
+      <% when 2 %>
+         <td><%= simple_format(@tmp_bu2_interval[2]) %></td>
+      <% when 3 %>
+         <td><%= simple_format(@tmp_bu2_interval[3]) %></td>
+      <% when 4 %>
+         <td><%= simple_format(@tmp_bu2_interval[4]) %></td>
+      <% else %>
+         <td>不定期(毎週フル=1 隔週フル=2 3週に1回フル=2 毎月フル=4)</td>
+    <% end %>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.bu3_fullsize') %></th>
+    <td><%= @article.bu3_fullsize %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.bu4_diffsize') %></th>
+    <td><%= @article.bu4_diffsize %></td>
+  </tr>
+
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.remark') %></th>
+    <td><%= simple_format(@article.remark) %></td>
+  </tr>
+  <tr>
+    <th><%= t('activerecord.attributes.article.ownername') %></th>
+    <td><%= simple_format(@article.ownername) %></td>
+  </tr>
+
+  <tr>
+    <th><%= t('activerecord.attributes.article.rev_date') %></th>
+    <td><%= @article.rev_date.try(:strftime, "%Y/%m/%d %H:%M") %></td>
+  </tr>
+
+
+</table>

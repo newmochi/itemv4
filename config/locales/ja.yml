@@ -1,0 +1,49 @@
+ja:
+  activerecord:
+    models:
+      member: ユーザリスト
+    attributes:
+      member:
+        number: 番号
+        name: ユーザ名
+        full_name: 氏名
+        email: メールアドレス
+        remark: インフォメーション
+        administrator: 管理者
+        password: パスワード
+        password_confirmation: パスワードの確認
+
+      article:
+        asciino: 番号（文字列）
+        location: 設置場所
+        category1: 分類
+        category2: 利用者機能
+        servername: サーバー名称、機能詳細
+        type_p1v2a9: 形態（物理=1 仮想=2）
+        os_w1x2: OS種別(Win or linux)
+        osfullname: OSバージョン(今わかれば)
+        balancer_use1no0: LB不要(=0) 要(=1) aplでscale(=2)
+        daisu: 台数
+        core: 1台当たりコア数
+        memgbyte: 1台当たりメモリ(GB)
+        storagegbyte: N台合計データ論理(GB)
+        st1_fs: データ用fileSystem
+        st2_rep: スナップやレプリケーション
+        st3_mbps: ストレージ性能Mbps(10～1000)(10(4KB)で160iops)
+        bu1_type: バックアップタイプ
+        bu2_interval: バックアップ周期
+        bu3_fullsize: フルバックアップ容量(MB)
+        bu4_diffsize: 差分または毎回容量(MB)
+        iops: IOPS(数値でも定性的文でも)
+        remark: 自由記述
+        ownername: オーナー
+        rev_date: 更新日時
+
+    errors:
+      messages:
+        invalid_member_name: "は半角英数字で入力してください（_も使えます）。"
+
+  will_paginate:
+    previous_label: "前"
+    next_label: "次"
+

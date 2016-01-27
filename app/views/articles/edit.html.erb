@@ -1,0 +1,9 @@
+<% @page_title = "サーバ基盤の編集" %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<p><%= link_to "基盤の詳細に戻る", @article %></p>
+
+<%= form_for @article do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

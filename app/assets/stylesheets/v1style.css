@@ -1,0 +1,218 @@
+/*
+itemlist version1 時代のスタイル
+最後の最後に読む
+*/
+
+
+/* リンク */
+a:link { color: #00c; }
+a:visited { color: #a08; }
+a:hover { color: #ccf; }
+a img { border: none; }
+
+/* ブロック要素 */
+p, h1, h2, h3, table, ul {
+  margin: 0 0 1em;
+}
+
+/* メニューバー@_header.html.erbのみ */
+div.menubar {
+  padding: 2px;
+/*  background-color: #000; */
+  background-color: navy;
+  color: #ccc;
+  font-size: 90%;
+  padding: 4px 2px 1px 10px;
+}
+
+/* メニューバーのリンク */
+div.menubar a { text-decoration: none; }
+
+/* メニューバーのリンク（未訪問） */
+div.menubar a:link { color: #ccc; }
+
+/* メニューバーのリンク（訪問済） */
+div.menubar a:visited { color: #ecc; }
+
+/* メニューバーのリンク（マウスを合わせたとき） */
+div.menubar a:hover {
+  color: #f88;
+  text-decoration: underline;
+}
+
+/* メニューバーのリンク（現在のページ） */
+div.menubar span {
+  color: #ff8;
+  font-weight: bold;
+}
+
+
+/* フラッシュ */
+p.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
+}
+
+/* エラー表示@_errors.html.erb */
+div#errors {
+  background-color: #fee;
+  border: 1px solid #ecc;
+  padding: 3px 6px;
+  margin: 0 0 1em;
+}
+
+div#errors h2 {
+  font-size: 90%;
+  color: red;
+  margin: 0 0 4px;
+  border: none;
+}
+
+div#errors ul {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+div.field_with_errors {
+  background-color: #fcc;
+  padding: 2px;
+}
+
+/* ページネーション */
+div.pagination {
+  font-size: 75%;
+  padding: 4px 8px;
+  border: 1px solid #499;
+  word-spacing: 4px;
+  
+  em { font-style: normal; }
+  em.current {
+    color: #499;
+    font-weight: bold;
+  }
+}
+
+/* ここから下はいらない */
+
+
+/* ページ全体はv2styleで上書き */
+body {
+  background-color: white;
+  color: black;
+  margin: 0; padding: 0;
+  font-family: Meiryo, sans-serif;
+}
+
+/*★不要 ヘッダー */
+div#header {
+  border-top: 0px solid #6bb;
+  /*メニューバーの上にグレーが4pxあったのを0にした*/
+}
+/*★不要 フッター */
+div#footer {
+  clear: both;
+  font: 11px Verdana;
+  color: #888;
+  padding: 8px 0;
+  border-top: 4px solid #6bb;
+  text-align: center;
+}
+
+/*★不要 全体の枠 */
+div#container {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 700px;
+}
+
+/*★不要 左の枠（コンテンツを入れる） */
+div#content {
+  float: left;
+  width: 700px;
+  padding: 10px 10px 10px 0;
+}
+
+/*★不要 右の枠（サイドバーを入れる） */
+/*div#sidebar {
+  float: left;
+  width: 230px;
+  background-color: #e8ffff;
+  padding: 5px;
+  font-size: 86%;
+}
+*/
+/*★不要 メインコンテンツ */
+div#content h1 {
+  color: #88c;
+  font-weight: normal;
+  font-size: 150%;
+  border-bottom: 2px solid #88c;
+  margin-bottom: 0.5em;
+}
+
+div#content h2 {
+  color: #99d;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ccf;
+}
+
+div#content p, div#content ul {
+  font-size: 90%;
+  line-height: 1.5;
+}
+
+/*★不要 サイドバー */
+table#login_form td {
+  font-size: 12px;
+}
+
+div#sidebar h2 {
+  color: #080;
+  font-weight: bold;
+  border-bottom: 1px dotted #080;
+  margin-bottom: 0.5em;
+  font-size: 100%;
+}
+
+div#sidebar ul {
+  padding-left: 1em;
+  list-style-type: none;
+}
+
+div#sidebar li {
+  margin-bottom: 0.3em;
+}
+
+/*★不要 表：一覧表示、詳細表示 */
+table.list, table.attr {
+  font-size: 90%;
+  width: 100%;
+}
+
+table.list th, table.attr th {
+  background-color: #499;
+  color: white;
+  font-weight: normal;
+}
+
+table.list td, table.list th,
+table.attr td, table.attr th {
+  padding: 4px;
+}
+
+table.list th {
+  text-align: left;
+}
+
+table.attr th {
+  text-align: right;
+}
+
+table.list td, table.attr td {
+  background-color: #cee;
+}
+
+

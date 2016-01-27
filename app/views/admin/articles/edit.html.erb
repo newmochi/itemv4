@@ -1,0 +1,9 @@
+<% @page_title = "サーバ基盤の全項目編集" %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<p><%= link_to "基盤の管理者用詳細に戻る", [:admin, @article] %></p>
+
+<%= form_for [:admin, @article] do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

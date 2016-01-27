@@ -1,0 +1,86 @@
+﻿
+
+Started GET "/" for 10.0.2.2 at 2016-01-27 19:15:53 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TopController#index as HTML
+  [1m[35mArticle Load (1.8ms)[0m  SELECT DISTINCT location FROM 
+              articles order by location
+  [1m[36mArticle Load (1.5ms)[0m  [1mSELECT DISTINCT location FROM 
+              articles [0m
+  Rendered top/index.html.erb within layouts/application (8.2ms)
+  Rendered shared/_login_form.html.erb (847.5ms)
+  Rendered shared/_header.html.erb (894.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 4588ms (Views: 4538.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/bootstrap.self-adcca2be39435905c767e9936875cae94d4a6913b45e44ce0a7eda720604875b.css?body=1" for 10.0.2.2 at 2016-01-27 19:15:58 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/v1style.self-ab15c9dc3deda439ac8b04e367136fb32b4833c3e5f847d63170fbd923bda09a.css?body=1" for 10.0.2.2 at 2016-01-27 19:15:58 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/v2style.self-7bbb032f86f4c7f47dd2c736d561910147b34fd7a3cb4f28c5a09a0f0c5134ae.css?body=1" for 10.0.2.2 at 2016-01-27 19:15:58 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-7ea6297a2ce5fee4d410c038b902566b541cbed571635adce489969d47f5eabc.css?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/bootstrap.self-3db49e444badb587f34991fa2cec1dd43ab2b86457dbe281d097fd579a595e22.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/members.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/top.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-763edc40ac487adacabb9d8ff726cd3e8d38c640ad7af95ff25fde0f4dbdfe7c.js?body=1" for 10.0.2.2 at 2016-01-27 19:15:59 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/session" for 10.0.2.2 at 2016-01-27 19:16:09 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"immsFvISL9PM+T/Rxe7vc2FBuDHwlytjzWmf9Rm4QgJVVDBtUvxOMSsgBY0HecMXQ5eAGK5kwj3VX0iiTvsM7w==", "name"=>"Taro", "password"=>"[FILTERED]", "commit"=>"ログイン", "from"=>"/"}
+  [1m[35mMember Load (1.7ms)[0m  SELECT  "members".* FROM "members" WHERE "members"."name" = ? LIMIT 1  [["name", "Taro"]]
+Redirected to http://localhost:4000/
+Completed 302 Found in 393ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2016-01-27 19:16:10 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopController#index as HTML
+  [1m[36mMember Load (2.7ms)[0m  [1mSELECT  "members".* FROM "members" WHERE "members"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticle Load (2.1ms)[0m  SELECT DISTINCT location FROM 
+              articles order by location
+  [1m[36mArticle Load (2.2ms)[0m  [1mSELECT DISTINCT location FROM 
+              articles [0m
+  Rendered top/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_header.html.erb (10.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 282ms (Views: 269.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/logo-6f99cb89058bb81cb72118fe0abffe2a11ee65a3c9932e131ced1b21e90b8ec2.gif" for 10.0.2.2 at 2016-01-27 19:16:10 +0900
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255

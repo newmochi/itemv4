@@ -1,0 +1,7 @@
+<% @page_title = "サーバ基盤の新規登録" %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+
+<%= form_for @article do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

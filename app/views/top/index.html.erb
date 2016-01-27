@@ -1,0 +1,81 @@
+<h3 style="border-style: groove; padding: 4px;">
+サーバ基盤現状簡易集計：設置場所TOP5まで(設置場所はちなみに
+<%= @location_sousu %>種類) </h3>
+<% if @repeat > 0 %>
+<%# 【ループstart】======================================== %>
+<%# %>
+<% @repeat.times do |i| # 設置場所分ループ %>
+<%# 仮想サーバ集計 %>
+<div class=well well-sm">
+【設置場所】<%= @location_case[i].location %>
+　【対象】仮想マシン　【台数】<%= @daisusubtotal[i] %>
+　【総コア数】<%= @coresubtotal[i] %>
+【総メモリ容量(GB)】<%= @memsubtotal[i] %>
+【総ストレージ容量(GB)】<%= @stsubtotal[i] %>
+【物理マシン換算数】<%= @p_daisuu4v[i] %>
+　(注)VMHA考慮、★コア16個サーバにて
+</div>
+<% if @daisusubtotal[i] > 0 %>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>分類</th>
+    <th>設置場所</th>
+    <th>台数</th>
+    <th>コア小計</th>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+    <th>メモリGB小計</th>
+    <th>HDDGB小計</th>
+  </tr>
+  <% @art_v[i].each do |item| %>
+  <tr>
+    <td><%= item.category1 %></td>
+    <td><%= item.location %></td>
+    <td align="right"><%= item.sum_daisu %></td>
+    <td align="right"><%= item.sum_core %></td>
+    <td align="right"><%= item.sum_memg %></td>
+    <td align="right"><%= item.sum_stg %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<% end # if end %>
+<%# 物理サーバ集計 %>
+<div class=well well-sm">
+【設置場所】<%= @location_case[i].location %>
+　【対象】物理マシン　【台数】<%= @daisusubtotalp[i] %>
+　【総コア数】<%= @coresubtotalp[i] %>
+【総メモリ容量(GB)】<%= @memsubtotalp[i] %>
+【総ストレージ容量(GB)】<%= @stsubtotalp[i] %>
+【マシン数】<%= @daisusubtotalp[i] %>
+</div>
+<% if @daisusubtotalp[i] > 0 %>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>分類</th>
+    <th>設置場所</th>
+    <th>台数</th>
+    <th>(コア小計)</th>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+    <th>(メモリGB小計)</th>
+    <th>HDDGB小計</th>
+  </tr>
+  <% @art_p[i].each do |item| %>
+  <tr>
+    <td><%= item.category1 %></td>
+    <td><%= item.location %></td>
+    <td align="right"><%= item.sum_daisu %></td>
+    <td align="right"><%= item.sum_core %></td>
+    <td align="right"><%= item.sum_memg %></td>
+    <td align="right"><%= item.sum_stg %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<% end # if end %>
+<% end # loop end%>
+<%# 【ループend】======================================== %>
+<% else %>
+<div class=well well-sm">
+サーバ基盤が１つもありません。
+</div>
+<% end %>
